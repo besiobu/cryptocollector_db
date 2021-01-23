@@ -1,4 +1,5 @@
-﻿CREATE FUNCTION [dwh].[data_get_trades_all](
+﻿
+CREATE FUNCTION [dwh].[data_get_trades_all](
 	@exchange_name VARCHAR(25),
 	@base_currency VARCHAR(25),
 	@quote_currency VARCHAR(25)
@@ -8,7 +9,7 @@ AS
 RETURN
 (SELECT
 	[timestamp_utc]	AS [timestamp_utc]
-	,[delay_ms]			AS [delay_ms]
+	,[delay_db_ms]			AS [delay_ms]
 	,[exchange_name]	AS [exchange_name]
 	,[base_currency]	AS [base_currency]
 	,[quote_currency]	AS [quote_currency]
@@ -18,7 +19,7 @@ RETURN
 FROM
 	(SELECT
 		CONVERT(DATETIME2, CONCAT([D].[date], ' ', DATEADD(MILLISECOND, [time_utc_ms], [T].[time]))) AS [timestamp_utc]
-		,[delay_ms]
+		,[delay_db_ms]
 		,[DE].[name] AS [exchange_name]
 		,[DC].[base_currency]
 		,[DC].[quote_currency]
