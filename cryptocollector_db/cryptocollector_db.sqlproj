@@ -298,5 +298,13 @@
     <Build Include="Security\reports.sql" />
     <Build Include="Security\staging.sql" />
     <Build Include="Security\Permissions.sql" />
+    <Build Include="staging\Stored Procedures\delete_staging_coinbase.sql">
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="staging\Stored Procedures\delete_staging_bitmex.sql">
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
   </ItemGroup>
 </Project>
